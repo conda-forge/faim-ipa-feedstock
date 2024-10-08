@@ -1,5 +1,5 @@
 {% set name = "faim-ipa" %}
-{% set version = "0.6.2" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/faim_ipa-{{ version }}.tar.gz
-  sha256: 874483db76b9fe8cd5ef29faa3fd669bed3a83d2c58d7f7969c4fd7839f820f6
+  sha256: 7835dc8de3cd2268973b7f8c51c1e6b5b2c6f5a6814374e318255f73cf4d7320
 
 build:
   noarch: python
@@ -30,6 +30,7 @@ requirements:
     - pandas
     - pint
     - pydantic >=2
+    - questionary
     - scikit-image
     - tqdm
 
