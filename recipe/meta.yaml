@@ -1,13 +1,14 @@
 {% set name = "faim-ipa" %}
-{% set version = "0.9.0" %}
+{% set version = "0.9.1" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/faim_ipa-{{ version }}.tar.gz
-  sha256: d4b1f70cbd5a4c74985abe9b8dd72dac86c68815940c3229f4aa276c0f4080e7
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/faim_ipa-{{ version }}.tar.gz
+  sha256: 57ab6f0dba5d304caf5fb82aa511a6fdfff008c9e2d9efa73b4d777e18d132cf
 
 build:
   noarch: python
@@ -16,12 +17,12 @@ build:
 
 requirements:
   host:
-    - python >=3.10
+    - python {{ python_min }}
     - hatchling
     - hatch-vcs
     - pip
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - defusedxml
     - distributed
     - matplotlib-base
@@ -40,6 +41,7 @@ test:
   commands:
     - pip check
   requires:
+    - python {{ python_min }}
     - pip
 
 about:
