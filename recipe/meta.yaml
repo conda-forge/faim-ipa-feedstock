@@ -1,5 +1,5 @@
 {% set name = "faim-ipa" %}
-{% set version = "0.9.2" %}
+{% set version = "0.10.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/faim_ipa-{{ version }}.tar.gz
-  sha256: d3a30c0a43dd8e5ed53079846428fc12fc683ad982474ec38cc179ecb4f6b455
+  sha256: c8d3662f134cf4d99b4cf07b7c8da2f4c555eb6132abc08d961a33924315e8c0
 
 build:
   noarch: python
