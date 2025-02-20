@@ -1,5 +1,5 @@
 {% set name = "faim-ipa" %}
-{% set version = "0.11.3" %}
+{% set version = "0.12.0" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/faim_ipa-{{ version }}.tar.gz
-  sha256: 9bb526090de51fc4ad9022ae97b2069bb9ddc9af73933e30c0a5e0a05595d6c6
+  sha256: e84e62a28c7c4bd47094431170672e5e5272d5136b3375fd7164535a5de90e0a
 
 build:
   noarch: python
@@ -26,7 +26,7 @@ requirements:
     - defusedxml
     - distributed
     - matplotlib-base
-    - numpy <2
+    - numpy
     - ome-zarr
     - pandas
     - pint
