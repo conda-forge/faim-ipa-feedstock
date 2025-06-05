@@ -1,28 +1,31 @@
-{% set name = "faim-ipa" %}
-{% set version = "0.13.0" %}
-{% set python_min = "3.10" %}
+schema_version: 1
+
+context:
+  name: faim-ipa
+  version: 0.13.0
+  python_min: 3.10
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/faim_ipa-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/faim_ipa-${{ version }}.tar.gz
   sha256: 3cb05909dbeba2f22f4f87c63399b1aa80136d14101256a8f76fe7b33d72f6b5
 
 build:
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python 3.10.*
     - hatchling
     - hatch-vcs
     - pip
   run:
-    - python >={{ python_min }}
+    - python >=${{ python_min }}
     - defusedxml
     - distributed
     - matplotlib-base
@@ -35,20 +38,18 @@ requirements:
     - scikit-image
     - tqdm
 
-test:
-  imports:
-    - faim_ipa
-  commands:
-    - pip check
-  requires:
-    - python {{ python_min }}
-    - pip
+tests:
+  - python:
+      imports:
+        - faim_ipa
+      pip_check: true
 
+      python_version: ${{ python_min }}.*
 about:
-  home: https://github.com/fmi-faim/faim-ipa
   summary: Tools used at FMI-FAIM for Image Processing and Analysis.
   license: BSD-3-Clause
   license_file: LICENSE
+  homepage: https://github.com/fmi-faim/faim-ipa
 
 extra:
   recipe-maintainers:
