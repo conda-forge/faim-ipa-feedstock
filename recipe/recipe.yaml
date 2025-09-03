@@ -37,6 +37,7 @@ requirements:
     - questionary
     - scikit-image
     - tqdm
+    - zarr <3
 
 tests:
   - python:
